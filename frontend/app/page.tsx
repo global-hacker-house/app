@@ -23,9 +23,9 @@ const getHackerHouses = async () => {
     data: res.data?.map(
       (x) =>
         ({
-          title: x.attributes.title as unknown as string,
-          description: x.attributes.description as unknown as string,
-          id: x.id as unknown as number,
+          title: x.attributes.title as string,
+          description: x.attributes.description as string,
+          id: x.id,
           avatar: x.attributes.logo.data?.attributes.formats.thumbnail?.url,
         }) satisfies HackerHouse
     ),

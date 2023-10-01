@@ -12,13 +12,9 @@ module.exports = createCoreController("api::apply.apply",({ strapi }) => ({
       const { email, name } = requestData
       try {
         await strapi.plugins["email"].services.email.send({
+          from: 'Amagi <amagi.dev@hackerhouse.tools>',
           to: email,
-          // from: "e@example.com", // e.g. single sender verification in SendGrid
-          // cc: "valid email address",
-          // bcc: "valid email address",
-          // replyTo: "valid email address",
           subject: "Thanks for applying our hacker house event",
-          text: "${fieldName}", // Replace with a valid field ID
           html: `Hi ${name}! Thanks you for applying our hacker house event. Great to have you here.
           <br/>
           Here is the interview schedule link: ..., please book a time slot that works for you.
@@ -28,6 +24,7 @@ module.exports = createCoreController("api::apply.apply",({ strapi }) => ({
           <br/>
           Hacker House Team`,
         })
+        // TODO: Create mail event in strapi
       } catch (err) {
         console.log("Sending email error", err)
       }

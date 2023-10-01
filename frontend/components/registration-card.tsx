@@ -54,7 +54,7 @@ export function RegistrationCard({ event }: { event: HackerHouseEvent }) {
 
           <CardContent className="flex items-center gap-2">
             <ReloadIcon className="h-4 w-4 animate-spin" />
-            <p>Loading...</p>
+            <p>Sending application...</p>
           </CardContent>
         </div>
       </Card>
