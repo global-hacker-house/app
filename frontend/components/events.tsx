@@ -31,7 +31,7 @@ export function Events({ data }: EventsProps) {
                 <div className="flex flex-row-reverse gap-4">
                   <div className="pointer-events-none">
                     <div className="w-[200px]">
-                      <div className="relative overflow-hidden rounded-lg bg-gray-50/5 pb-[50%]">
+                      <div className="relative aspect-video overflow-hidden rounded-lg bg-gray-50/5 pb-[50%]">
                         {hasCover ? (
                           <Image
                             src={getStrapiURL(
@@ -41,7 +41,7 @@ export function Events({ data }: EventsProps) {
                             loading="lazy"
                             alt={`Cover image for ${x.attributes.title}`}
                             fetchPriority="auto"
-                            objectFit="cover"
+                            objectFit="contain"
                             fill
                           />
                         ) : (
