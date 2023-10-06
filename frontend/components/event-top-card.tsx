@@ -1,5 +1,5 @@
 import { getStrapiURL } from "#/lib/api-helpers"
-import { cn, getUserInitials } from "#/lib/utils"
+import { getUserInitials } from "#/lib/utils"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { format } from "date-fns"
 import React from "react"
@@ -21,14 +21,8 @@ export function EventTopCard({
   return (
     <Card className="bg-card text-card-foreground col-span-4 rounded-xl">
       <div className="flex flex-col space-y-1.5 p-2">
-        <div
-          className={cn(
-            "relative flex w-full shrink items-center justify-center rounded-md bg-gray-200 py-[25%]",
-            !hasCover && "py-[25%]"
-          )}
-        >
+        <div className="relative flex w-full shrink items-center justify-center rounded-md bg-gray-200 py-[25%]">
           {hasCover ? (
-            // eslint-disable-next-line @next/next/no-img-element
             <Image
               src={getStrapiURL(event.attributes.post!.data[0].attributes.url)}
               className="w-full"
@@ -88,7 +82,10 @@ export function EventTopCard({
                   )}
                 </p>
                 <p className="text-muted-foreground text-sm">
-                  {format(new Date(event.attributes.start_time), "yyyy MMM dd, p")}
+                  {format(
+                    new Date(event.attributes.start_time),
+                    "yyyy MMM dd, p"
+                  )}
                 </p>
               </div>
             </div>
