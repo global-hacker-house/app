@@ -19,7 +19,7 @@ export default async function EventPage({ params }: EventPageProps) {
       )
     : {}
 
-  if (!event || !organization) {
+  if (!event) {
     // Not found
     return null
   }

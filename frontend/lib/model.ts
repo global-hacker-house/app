@@ -21,6 +21,13 @@ export interface HackerHouse {
   createdAt?: string
 }
 
+export interface EventTag {
+  id: number
+  attributes: {
+    title: string
+  }
+}
+
 export interface HackerHouseEvent {
   id: number
   attributes: {
@@ -36,32 +43,33 @@ export interface HackerHouseEvent {
     publishedAt: string
     organization: { data: Organization }
     // hackers?: { data: Hacker[] }
+    event_tags?: { data: EventTag[] }
     applies?: { data: Apply[] }
   }
 }
 
 export interface Apply {
-  id: number;
+  id: number
   attributes: {
-    email: string;
-    introduction: string;
-    status: 'waiting' | 'approved' | 'rejected';
-    name: string;
-  };
+    email: string
+    introduction: string
+    status: "waiting" | "approved" | "rejected"
+    name: string
+  }
 }
 
 export interface Hacker {
-  id: number;
+  id: number
   attributes: {
-    username: string;
-    email: string;
-    provider: string;
-    confirmed: boolean;
-    blocked: boolean;
+    username: string
+    email: string
+    provider: string
+    confirmed: boolean
+    blocked: boolean
     image?: {
       data: MediaData
-    };
-  };
+    }
+  }
 }
 
 export interface Organization {

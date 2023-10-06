@@ -1,7 +1,7 @@
 import { type HackerHouseEvent } from "#/lib/model"
 import React from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
-import { RegistrationCard } from "./registration-card"
+// import { RegistrationCard } from "./registration-card"
 import { GhostIcon, TextIcon } from "lucide-react"
 import { Avatar, AvatarFallback } from "./ui/avatar"
 import { getUserInitials } from "#/lib/utils"
@@ -15,23 +15,21 @@ export function EventBottomSection({ event }: { event: HackerHouseEvent }) {
   return (
     <div className="mt-4 flex flex-col gap-4 md:flex-row">
       <div className="flex flex-1 flex-col gap-4">
-        <RegistrationCard event={event} />
+        {/* <RegistrationCard event={event} /> */}
 
-        {event?.attributes.introduce && (
-          <Card>
-            <div className="flex flex-col">
-              <CardHeader>
-                <CardTitle className="inline-flex items-center gap-2">
-                  <TextIcon /> About
-                </CardTitle>
-              </CardHeader>
+        <Card>
+          <div className="flex flex-col">
+            <CardHeader>
+              <CardTitle className="inline-flex items-center gap-2">
+                <TextIcon /> About
+              </CardTitle>
+            </CardHeader>
 
-              <CardContent style={{ wordBreak: "break-word" }}>
-                {event.attributes.introduce}
-              </CardContent>
-            </div>
-          </Card>
-        )}
+            <CardContent style={{ wordBreak: "break-word" }}>
+              {event.attributes.introduce ?? 'This event has no description'}
+            </CardContent>
+          </div>
+        </Card>
       </div>
 
       <div className="flex flex-col md:w-[320px]">

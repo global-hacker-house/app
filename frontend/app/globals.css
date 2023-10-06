@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  
   :root {
+    --max-width: 820px;
     --background: 0 0% 100%;
     --foreground: 224 71.4% 4.1%;
 
@@ -73,6 +75,11 @@
     @apply border-border;
   }
   body {
-    @apply text-foreground;
+    @apply text-foreground bg-muted;
   }
+}
+
+.ghh-container {
+  max-width: var(--max-width);
+  @apply mx-auto;
 }
