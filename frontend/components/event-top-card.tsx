@@ -19,7 +19,7 @@ export function EventTopCard({
   const hasCover = !!event.attributes.post?.data?.[0]?.attributes?.url
 
   return (
-    <Card className="bg-card text-card-foreground col-span-4 rounded-xl">
+    <Card className="col-span-4 rounded-xl bg-card text-card-foreground">
       <div className="flex flex-col space-y-1.5 p-2">
         <div className="relative flex w-full shrink items-center justify-center rounded-md bg-gray-200 py-[25%]">
           {hasCover ? (
@@ -81,7 +81,7 @@ export function EventTopCard({
                     "EEEE, MMMM d"
                   )}
                 </p>
-                <p className="text-muted-foreground text-sm">
+                <p className="text-sm text-muted-foreground">
                   {format(
                     new Date(event.attributes.start_time),
                     "yyyy MMM dd, p"

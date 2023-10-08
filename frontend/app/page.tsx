@@ -37,10 +37,10 @@ export default async function Home({ searchParams: { tag } }: HomeProps) {
     <>
       <SiteHeader />
       <main className="ghh-container">
-        <div className="flex min-h-screen flex-row-reverse gap-6 py-12">
+        <div className="flex min-h-screen flex-col gap-6 py-12 md:flex-row-reverse">
           <Sidebar tag={tag} tags={eventTags} />
 
-          <div className="flex min-w-0 flex-1 flex-col">
+          <div className="flex min-w-0 flex-1 flex-col px-8 md:px-0">
             <div className="flex justify-between">
               <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                 Events

@@ -33,8 +33,8 @@ export function Sidebar({ tags, tag }: SidebarProps) {
   }
 
   return (
-    <div className="sticky top-0 max-h-screen px-4">
-      <div className="w-[260px]">
+    <div className="static max-h-screen px-4 md:sticky md:top-0">
+      <div className="hidden w-[260px] md:block">
         <Card>
           <div className="px-4 py-2">
             <b className="font-bold">Filter</b>
@@ -46,7 +46,7 @@ export function Sidebar({ tags, tag }: SidebarProps) {
                 <Label
                   htmlFor={ALL_TAG}
                   className={cn(
-                    "hover:text-primary flex-1 cursor-pointer text-base font-normal transition-colors",
+                    "flex-1 cursor-pointer text-base font-normal transition-colors hover:text-primary",
                     selectedTag === ALL_TAG ? "text-primary" : "text-gray-400"
                   )}
                 >
@@ -68,7 +68,7 @@ export function Sidebar({ tags, tag }: SidebarProps) {
                     <Label
                       htmlFor={x.id.toString()}
                       className={cn(
-                        "hover:text-primary flex-1 cursor-pointer text-base font-normal transition-colors",
+                        "flex-1 cursor-pointer text-base font-normal transition-colors hover:text-primary",
                         selectedTag === x.attributes.title
                           ? "text-primary"
                           : "text-gray-400"
@@ -87,6 +87,8 @@ export function Sidebar({ tags, tag }: SidebarProps) {
           </div>
         </Card>
       </div>
+
+      
     </div>
   )
 }

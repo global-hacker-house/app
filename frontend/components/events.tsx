@@ -23,7 +23,7 @@ export function Events({ data }: EventsProps) {
 
         return (
           <Card
-            className="hover:border-border min-w-0 flex-1 border-transparent transition-all hover:shadow-sm"
+            className="min-w-0 flex-1 border-transparent transition-all hover:border-border hover:shadow-sm"
             key={x.attributes.title}
           >
             <Link href={`/event/${x.id}`}>
