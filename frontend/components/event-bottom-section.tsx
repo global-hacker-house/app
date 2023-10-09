@@ -1,19 +1,27 @@
-import { type HackerHouseEvent } from "#/lib/model"
 import React from "react"
+import { BookMinusIcon, GhostIcon, TextIcon } from "lucide-react"
+import { getUserInitials } from "#/lib/utils"
+import { type Organization, type HackerHouseEvent } from "#/lib/model"
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card"
 // import { RegistrationCard } from "./registration-card"
-import { GhostIcon, TextIcon } from "lucide-react"
 import { Avatar, AvatarFallback } from "./ui/avatar"
-import { getUserInitials } from "#/lib/utils"
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip"
+import { EventOrgInformation } from "./event-org-information"
+import { EventLocationMap } from "./event-location-map"
 
-export function EventBottomSection({ event }: { event: HackerHouseEvent }) {
-  const approvedHackers = event.attributes.applies?.data.filter(
-    (x) => x.attributes.status === "approved"
-  )
+export function EventBottomSection({
+  event,
+  organization,
+}: {
+  event: HackerHouseEvent
+  organization: Organization | null
+}) {
+  // const approvedHackers = event.attributes.applies?.data.filter(
+  //   (x) => x.attributes.status === "approved"
+  // )
 
   return (
-    <div className="mt-4 flex flex-col gap-4 md:flex-row">
+    <div className="mt-4 flex flex-col gap-4 pb-16 md:flex-row">
       <div className="flex flex-1 flex-col gap-4">
         {/* <RegistrationCard event={event} /> */}
 
@@ -21,23 +29,27 @@ export function EventBottomSection({ event }: { event: HackerHouseEvent }) {
           <div className="flex flex-col">
             <CardHeader>
               <CardTitle className="inline-flex items-center gap-2">
-                <TextIcon /> About
+                <BookMinusIcon className="h-4 w-4" /> About
               </CardTitle>
             </CardHeader>
 
             <CardContent style={{ wordBreak: "break-word" }}>
-              {event.attributes.introduce ?? 'This event has no description'}
+              {event.attributes.introduce ?? "This event has no description"}
             </CardContent>
           </div>
         </Card>
       </div>
 
-      <div className="flex flex-col md:w-[320px]">
-        <Card>
+      <div className="flex flex-col gap-4 md:w-[320px]">
+        <EventOrgInformation organization={organization} />
+        <EventLocationMap event={event} />
+
+        {/* People */}
+        {/* <Card>
           <div className="flex flex-col">
             <CardHeader className="border-b">
               <CardTitle className="inline-flex items-center gap-2">
-                <GhostIcon /> People
+                <GhostIcon className="h-4 w-4" /> People
               </CardTitle>
             </CardHeader>
 
@@ -56,13 +68,6 @@ export function EventBottomSection({ event }: { event: HackerHouseEvent }) {
                       <Tooltip>
                         <TooltipTrigger className="cursor-default">
                           <Avatar className="h-6 w-6 text-xs">
-                            {/* <AvatarImage
-                                src={
-                                  hacker.attributes.image?.data.attributes
-                                    .formats.thumbnail?.url
-                                }
-                                alt={`@${hacker.attributes.username}`}
-                              /> */}
                             <AvatarFallback>
                               {getUserInitials(hacker.attributes.name)}
                             </AvatarFallback>
@@ -82,7 +87,7 @@ export function EventBottomSection({ event }: { event: HackerHouseEvent }) {
               )}
             </CardContent>
           </div>
-        </Card>
+        </Card> */}
       </div>
     </div>
   )

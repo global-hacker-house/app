@@ -36,6 +36,9 @@
     },
     "telegram_url": {
       "type": "string"
+    },
+    "mail": {
+      "type": "email"
     }
   }
 }

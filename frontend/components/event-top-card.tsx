@@ -1,13 +1,13 @@
+import React from "react"
+import Image from "next/image"
+import { format } from "date-fns"
 import { getStrapiURL } from "#/lib/api-helpers"
 import { getUserInitials } from "#/lib/utils"
+import { type Organization, type HackerHouseEvent } from "#/lib/model"
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
-import { format } from "date-fns"
-import React from "react"
 import { CalenderCard } from "./ui/calender-card"
 import { Card } from "./ui/card"
 import { Tooltip, TooltipTrigger, TooltipContent } from "./ui/tooltip"
-import Image from "next/image"
-import { type Organization, type HackerHouseEvent } from "#/lib/model"
 
 export function EventTopCard({
   event,

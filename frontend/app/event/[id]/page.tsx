@@ -28,7 +28,7 @@ export default async function EventPage({ params }: EventPageProps) {
     <main className="container">
       <div className="mx-auto max-w-[960px]">
         <EventTopCard event={event} organization={organization} />
-        <EventBottomSection event={event} />
+        <EventBottomSection event={event} organization={organization} />
       </div>
     </main>
   )

@@ -76,13 +76,15 @@ export interface Organization {
   id: number
   attributes: {
     title: string
-    publishedAt: string
+    introduce: string
+    twitter_url: string
+    telegram_url: string
+    mail: string
     logo: {
       data: MediaData
     }
   }
 }
-
 export interface MediaData {
   id: number
   attributes: {

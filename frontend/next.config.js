@@ -23,7 +23,7 @@ const nextConfig = {
     ]
   },
   images: {
-    domains: ["localhost"],
+    domains: ["localhost", "restapi.amap.com"],
   },
 }
 
