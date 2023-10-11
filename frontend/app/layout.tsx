@@ -5,6 +5,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { cn } from "#/lib/utils"
 import { Providers } from "#/components/providers"
+import { Analytics } from '#/components/analytics'
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -57,6 +58,7 @@ export default function RootLayout({
       <body className={cn(inter.className)}>
         <Providers>{children}</Providers>
         <TailwindIndicator />
+        <Analytics />
       </body>
     </html>
   )
